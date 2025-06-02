@@ -46,6 +46,7 @@
 #endif
 
 using namespace qindesign::network;
+
 class ArduinoHardware {
 public:
   ArduinoHardware()
@@ -77,9 +78,12 @@ public:
   }
 
   int read(){
-    if (tcp_.available())
+    if (tcp_.connected())
     {
-        return tcp_.read();
+      if(tcp_.available())
+      {
+          return tcp_.read();
+      }
     }
     else
     {
