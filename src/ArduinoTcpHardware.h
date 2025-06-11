@@ -95,7 +95,7 @@ public:
 
   void write(const uint8_t* data, int length)
   {
-    tcp_.write(data, length);
+    tcp_.writeFully(data, length);
   }
 
   unsigned long time()
